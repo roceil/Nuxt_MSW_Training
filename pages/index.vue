@@ -2,9 +2,12 @@
 import { ref } from 'vue'
 
 const data = ref([])
+const runtimeConfig = useRuntimeConfig()
+const { apiBase } = runtimeConfig.public
+
 
 const fetchData = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+  const res = await fetch(apiBase)
   const responseData = await res.json()
   const usernames = responseData.map(user => user.username)
   data.value = usernames
@@ -13,6 +16,7 @@ const fetchData = async () => {
 const clearData = () => {
   data.value = []
 }
+
 </script>
 
 <template>

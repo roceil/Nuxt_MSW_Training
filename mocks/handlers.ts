@@ -1,7 +1,9 @@
 import { rest } from 'msw';
+const runtimeConfig = useRuntimeConfig()
+const { apiBase } = runtimeConfig.public
 
 export const handlers = [
-  rest.get('https://jsonplaceholder.typicode.com/users', (req, res, ctx) => {
+  rest.get(apiBase, (req, res, ctx) => {
     const users = [];
     for (let i = 1; i <= 10; i++) {
       users.push({ id: i, username: `User ${i}` });
