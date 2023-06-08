@@ -4,7 +4,7 @@ export default ({
   css: ['~/assets/css/global.css'],
   runtimeConfig: {
     public: {
-      apiBase: '/api'
+      apiBase: 'https://jsonplaceholder.typicode.com/users'
     }
-  }
+  },
 })
